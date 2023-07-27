@@ -1,0 +1,5 @@
+package challenge.support.config;
+
+public class JpaConfig {
+
+}

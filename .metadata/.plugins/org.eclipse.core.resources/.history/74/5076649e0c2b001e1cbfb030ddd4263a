@@ -1,0 +1,50 @@
+package challenge.support.persistence.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import challenge.support.persistence.model.Pelicula;
+import challenge.support.persistence.service.intf.SupportDataServiceInterface;
+
+@Service
+public class SupportDataServiceImplement {
+	
+	@Autowired
+	private SupportDataServiceInterface supportDataServiceInterface;
+	
+	public Pelicula getPeliculaById(Long id) {
+		Optional<Pelicula> optionalPelicula = supportDataServiceInterface.findById(id);
+		return optionalPelicula.orElse(null);
+	}
+	
+	public List<Pelicula> getAllPeliculas(){
+		return supportDataServiceInterface.findAll();
+	}
+
+	public Pelicula createPelicula(Pelicula pelicula) {
+		return supportDataServiceInterface.save(pelicula);
+	}
+	
+	public Pelicula updatePelicula(Long id, Pelicula pelicula) {
+		Optional<Pelicula> optionalPelicula = supportDataServiceInterface.findById(id);
+		if(optionalPelicula.isPresent()) {
+			pelicula.setId(id);
+			return supportDataServiceInterface.save(pelicula);
+		} else {
+			return null;
+		}
+	}
+	
+	public boolean deletePelicula(Long id) {
+		Optional<Pelicula> optionalPelicula = supportDataServiceInterface.findById(id);
+		if(optionalPelicula.isPresent()) {
+			supportDataServiceInterface.delete(optionalPelicula.get());
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

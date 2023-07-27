@@ -1,0 +1,16 @@
+package challenge.channel.proxy.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+public class Pelicula {
+
+	private Long idPelicula;
+	private String titulo;
+	private Long anho;
+	private Long minutosDuracion;
+	private String descripcion;
+}

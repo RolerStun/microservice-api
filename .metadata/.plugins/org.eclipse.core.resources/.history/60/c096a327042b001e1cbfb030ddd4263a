@@ -1,0 +1,13 @@
+package challenge.support.persistence.service.impl;
+
+import challenge.support.persistence.service.intf.SupportDataServiceInterface;
+
+public class SupportDataServiceImplement {
+	
+	private final SupportDataServiceInterface supportDataServiceInterface;
+	
+	public SupportDataServiceImplement(SupportDataServiceInterface supportDataServiceInterface) {
+		this.supportDataServiceInterface = supportDataServiceInterface;
+	}
+
+}

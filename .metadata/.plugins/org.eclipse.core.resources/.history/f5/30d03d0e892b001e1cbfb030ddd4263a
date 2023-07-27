@@ -1,0 +1,18 @@
+package challenge.challenge.proxy.service.intf;
+
+import java.util.List;
+
+import challenge.challenge.proxy.model.Pelicula;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+
+public interface ChannelProxyServiceInterface {
+	
+	@GET("/api/support/peliculas/{id}")
+	Call<Pelicula> getPeliculaById(@Path("id") Long id);
+
+	@GET("/api/support/peliculas")
+	Call<List<Pelicula>> getAllPeliculas();
+	
+}

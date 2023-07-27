@@ -1,0 +1,13 @@
+package challenge.challenge.business.service.intf;
+
+import java.util.List;
+
+import challenge.challenge.proxy.model.Pelicula;
+
+public interface ChannelBusinessServiceInterface {
+	
+	Pelicula getPeliculaById(Long id);
+	
+	List<Pelicula> getAllPeliculas();
+	
+}

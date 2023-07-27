@@ -1,0 +1,29 @@
+package challenge.challenge.proxy.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import challenge.challenge.proxy.model.Pelicula;
+import challenge.challenge.proxy.service.intf.ChannelProxyServiceInterface;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+
+@Service
+public class ChannelProxyServiceImplement implements ChannelProxyServiceInterface{
+	
+	@Autowired
+	private Retrofit retrofit;
+
+	@Override
+	public Call<Pelicula> getPeliculaById(Long id) {
+		return retrofit.create(ChannelProxyServiceInterface.class).getPeliculaById(id);
+	}
+
+	@Override
+	public Call<List<Pelicula>> getAllPeliculas() {
+		return retrofit.create(ChannelProxyServiceInterface.class).getAllPeliculas();
+	}
+
+}

@@ -1,0 +1,7 @@
+package challenge.support.persistence.service.intf;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SupportDataServiceInterface extends JpaRepository<Movie, Long> {
+
+}

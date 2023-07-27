@@ -1,0 +1,30 @@
+package challenge.challenge.business.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import challenge.challenge.business.service.intf.ChannelBusinessServiceInterface;
+import challenge.challenge.proxy.model.Pelicula;
+import challenge.challenge.proxy.service.intf.ChannelProxyServiceInterface;
+
+@Service
+public class ChannelBusinessServiceImplement implements ChannelBusinessServiceInterface{
+
+	@Autowired
+	private ChannelProxyServiceInterface channelProxyServiceInterface;
+
+	@Override
+	public Pelicula getPeliculaById(Long id) {
+		return (Pelicula) channelProxyServiceInterface.getPeliculaById(id);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Pelicula> getAllPeliculas() {
+		return (List<Pelicula>) channelProxyServiceInterface.getAllPeliculas();
+	}
+	
+	
+}

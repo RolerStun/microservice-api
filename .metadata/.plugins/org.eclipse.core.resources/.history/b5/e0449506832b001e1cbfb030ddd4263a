@@ -1,0 +1,5 @@
+package challenge.challenge.business.service.intf;
+
+public interface ChannelBusinessServiceInterface {
+
+}

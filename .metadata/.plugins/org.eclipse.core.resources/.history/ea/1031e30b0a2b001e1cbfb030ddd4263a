@@ -1,0 +1,29 @@
+package challenge.support.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import challenge.support.persistence.model.Pelicula;
+import challenge.support.persistence.service.impl.SupportDataServiceImplement;
+
+@RestController
+@RequestMapping("/api/support")
+public class SupportController {
+
+	@Autowired
+	private SupportDataServiceImplement supportDataService;
+	
+	@GetMapping("/peliculas/{id}")
+	public ResponseEntity<Pelicula> getPelicula(@PathVariable Long id){
+		Pelicula pelicula = supportDataService.getPeliculaById(id);
+		if(pelicula != null) {
+			return ResponseEntity.ok(pelicula);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+}
